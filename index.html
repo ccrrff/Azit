@@ -1,134 +1,164 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6팀 파티 초대장</title>
+    <title>PARTY INVITATION</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Pretendard:wght@400;600;800&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 <body>
-    <!-- Confetti Party Effect -->
-    <div class="confetti-container">
-        <div class="confetti c1"></div>
-        <div class="confetti c2"></div>
-        <div class="confetti c3"></div>
-        <div class="confetti c4"></div>
-        <div class="confetti c5"></div>
-        <div class="confetti c6"></div>
-        <div class="confetti c7"></div>
-        <div class="confetti c8"></div>
-        <div class="confetti c9"></div>
-        <div class="confetti c10"></div>
-        <div class="confetti c11"></div>
-        <div class="confetti c12"></div>
+    <div class="background-effects" id="confetti-container"></div>
+    
+    <div class="audio-rack">
+        <!-- TOP DECK -->
+        <div class="deck-row">
+            <div class="module main-display">
+                <div class="led-bar">
+                    <span class="led red active"></span>
+                    <span class="led green"></span>
+                </div>
+                <div class="display-content">
+                    <h1>INVITATION</h1>
+                    <div class="date-panel">
+                        <div class="panel-item">
+                            <span class="label">DATE</span>
+                            <span class="value">01 / 18</span>
+                        </div>
+                        <div class="panel-item">
+                            <span class="label">TIME</span>
+                            <span class="value">05 : 00 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="module audio-controls">
+                <div class="control-grid">
+                    <div class="knob-container">
+                        <div class="knob"></div>
+                        <span class="label">MASTER</span>
+                    </div>
+                    <div class="knob-container">
+                        <div class="knob"></div>
+                        <span class="label">VIBE</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GUESTS MODULE -->
+        <div class="module guests-panel reveal">
+            <div class="module-header">
+                <i class="fas fa-users"></i>
+                <h2>GUESTS</h2>
+            </div>
+            <div class="guest-list">
+                <span class="guest-chip">진아</span>
+                <span class="guest-chip">지연</span>
+                <span class="guest-chip">의진</span>
+                <span class="guest-chip">영준</span>
+            </div>
+        </div>
+
+        <!-- MENU EQUALIZER -->
+        <div class="module eq-panel reveal">
+            <div class="module-header">
+                <i class="fas fa-sliders-h"></i>
+                <h2>MENU EQUALIZER</h2>
+            </div>
+            <div class="menu-grid">
+                <!-- APPETIZER -->
+                <div class="eq-group appetizer">
+                    <div class="eq-header">
+                        <span class="cat">APPETIZER</span>
+                        <div class="peak-meter">
+                            <div class="levels"><span></span><span></span><span></span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item highlight">새우딤섬</div>
+                </div>
+
+                <!-- MAIN -->
+                <div class="eq-group main">
+                    <div class="eq-header">
+                        <span class="cat">MAIN</span>
+                        <div class="peak-meter">
+                            <div class="levels"><span></span><span></span><span></span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item highlight">윗등심 스테이크</div>
+                    <div class="menu-item highlight-sub">양배추 스테이크</div>
+                </div>
+
+                <!-- MEAL -->
+                <div class="eq-group meal">
+                    <div class="eq-header">
+                        <span class="cat">MEAL</span>
+                        <div class="peak-meter">
+                            <div class="levels"><span></span><span></span><span></span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item highlight">감바스</div>
+                </div>
+
+                <!-- DESSERT -->
+                <div class="eq-group dessert">
+                    <div class="eq-header">
+                        <span class="cat">DESSERT</span>
+                        <div class="peak-meter">
+                            <div class="levels"><span></span><span></span><span></span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item highlight">고구마피자김치 그라탕</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER NOTICE -->
+        <div class="module footer-panel reveal">
+            <div class="status-indicator">
+                <div class="led-pulse"></div>
+                <span class="status-msg">Notice</span>
+            </div>
+            <p class="notice-text">
+                좋은 날, 좋은 사람들과 함께하는 시간에 여러분을 초대합니다.<br>
+            </p>
+        </div>
     </div>
 
-    <div class="container">
-        <!-- 1. Main Receiver Amp: Title & Receivers -->
-        <header class="module main-amp">
-            <div class="module-header">
-                <span class="label">AUDIO SYSTEM</span>
-                <div class="indicators">
-                    <span class="light red"></span>
-                    <span class="light green"></span>
-                </div>
-            </div>
-            <h1 class="title">INVITATION<br><span class="highlight">PARTY</span></h1>
+    <script>
+        // Scroll Fade-In Effect
+        const observerOptions = {
+            threshold: 0.1
+        };
 
-            <div class="time-panel">
-                <span class="date">1월 18일</span>
-                <span class="time">오후 5시</span>
-            </div>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
 
-            <div class="receivers-panel">
-                <p class="label-text">GUESTS</p>
-                <div class="guest-list">
-                    <div class="guest-chip">진아</div>
-                    <div class="guest-chip">지연</div>
-                    <div class="guest-chip">의진</div>
-                    <div class="guest-chip">영준</div>
-                </div>
-            </div>
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-            <div class="decorative-knobs">
-                <div class="knob-circle"></div>
-                <div class="knob-circle"></div>
-            </div>
-        </header>
-
-        <!-- 2. Location Tuner: Address -->
-        <section class="module location-tuner">
-            <div class="module-header">
-                <span class="label">LOCATION TUNER</span>
-            </div>
-            <div class="address-display">
-                <p class="address-text">서울시 강동구 성안로 64<br>나동 503호</p>
-                <div class="frequency-bar">
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line active"></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
-                </div>
-            </div>
-            <div class="map-decoration">
-                <div class="grid-lines"></div>
-                <div class="target-point"></div>
-            </div>
-        </section>
-
-        <!-- 3. Menu Equalizer: Food Menu -->
-        <section class="module menu-equalizer">
-            <div class="module-header">
-                <span class="label">MENU EQUALIZER</span>
-            </div>
-            <ul class="menu-list">
-                <li class="menu-item item-appetizer">
-                    <span class="category">APPETIZER</span>
-                    <span class="food-name">새우딤섬</span>
-                </li>
-                <li class="menu-item item-main">
-                    <span class="category">MAIN</span>
-                    <span class="food-name">윗등심 스테이크</span>
-                    <span class="food-name subway">양배추 스테이크</span>
-                </li>
-                <li class="menu-item item-meal highlight-gambas">
-                    <span class="category">MEAL</span>
-                    <span class="food-name">감바스</span>
-                </li>
-                <li class="menu-item item-dessert">
-                    <span class="category">DESSERT</span>
-                    <span class="food-name">고구마피자김치 그라탕</span>
-                </li>
-            </ul>
-        </section>
-
-        <!-- 4. Notice Module: Redesigned -->
-        <footer class="module notice-module">
-            <div class="module-header">
-                <span class="label">IMPORTANT NOTICE</span>
-                <div class="led-indicator blinking"></div>
-            </div>
-            <div class="message-box">
-                <div class="icon-side">
-                    <span class="alert-icon">!</span>
-                </div>
-                <div class="text-side">
-                    <p class="message-body">개인 음료는 꼭 챙겨와주세요</p>
-                </div>
-            </div>
-            <div class="deco-lines">
-                <span></span><span></span><span></span>
-            </div>
-        </footer>
-    </div>
+        // Confetti Effect
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#ff0055', '#33ff55', '#3355ff', '#ffcc00'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(confetti);
+            }
+        }
+        createConfetti();
+    </script>
 </body>
-
 </html>
